@@ -1,6 +1,8 @@
 ---
 // English home page: mirrors the completed Thai homepage without changing its design intent.
 import BaseLayout from "../layouts/BaseLayout.astro";
+// ใช้ base นี้เพื่อให้ลิงก์ทำงานทั้ง localhost และ GitHub Pages
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Portfolio - Jirasak">
@@ -31,11 +33,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </p>
         <div class="mt-10 flex flex-wrap gap-3">
           <a
-            href="/contact"
+            href={`${base}contact`}
             class="rounded-sm bg-gold px-6 py-3 text-xs font-bold tracking-[.12em] text-ink transition hover:bg-cream"
             >Contact me <span class="ml-1">→</span></a
           ><a
-            href="/portfolio"
+            href={`${base}portfolio`}
             class="rounded-sm border border-white/15 px-6 py-3 text-xs font-bold tracking-[.12em] text-cream transition hover:border-gold hover:text-gold"
             >View projects</a
           >
@@ -99,7 +101,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           class="relative overflow-hidden rounded-sm border border-gold/40 bg-panel p-2 shadow-[0_0_60px_rgba(217,174,84,.13)]"
         >
           <img
-            src="/imge/jeerasak.png"
+            src={`${base}images/hero-coding-portrait.png`}
             alt="่jeerasak"
             class="aspect-[4/5] w-full object-cover object-center"
           /><div

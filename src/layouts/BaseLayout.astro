@@ -15,7 +15,9 @@ const {
 // lang = "th" สำหรับหน้าไทย และ "en" สำหรับหน้าอังกฤษ
 const isThai = lang === "th";
 const path = Astro.url.pathname;
-const base = isThai ? "/th" : "";
+// BASE_URL จะเป็น / ระหว่างพัฒนา และ /Portfolio/ บน GitHub Pages
+const root = import.meta.env.BASE_URL;
+const base = isThai ? `${root}th` : root.replace(/\/$/, "");
 // ข้อความเมนูจะแสดงตามภาษาของหน้าปัจจุบัน
 const labels = isThai
   ? {
@@ -43,9 +45,7 @@ const links = [
   [labels.contact, `${base}/contact`],
 ];
 // ลิงก์ภาษาเป็น static link ปกติ ไม่ใช้ JavaScript
-const languageLink = isThai
-  ? path.replace(/^\/th/, "") || "/"
-  : `/th${path === "/" ? "/" : path}`;
+const languageLink = isThai ? root : `${root}th/`;
 ---
 
 <!doctype html>
