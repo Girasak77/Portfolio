@@ -12,6 +12,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
   }
 
   /* พื้นหลังหลายชั้นช่วยให้เว็บดาร์กมีมิติ โดยไม่ใช้รูปภาพเพิ่มเติม */
