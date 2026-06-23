@@ -80,6 +80,15 @@ html[lang="th"] body {
   letter-spacing: -0.025em;
 }
 
+/* ปุ่มไปส่วนถัดไป: ใช้ลิงก์ปกติ จึงทำงานได้แม้เว็บไซต์เป็น static 100% */
+.journey-link {
+  @apply inline-flex items-center gap-3 rounded-full border border-gold/50 px-5 py-3 text-xs font-bold uppercase tracking-[.14em] text-gold transition hover:bg-gold hover:text-ink;
+}
+.journey-link::after {
+  content: "↓";
+  @apply text-base;
+}
+
 /* กติกาสำหรับมือถือ ใช้ร่วมกันทั้งหน้าไทยและอังกฤษ */
 @media (max-width: 767px) {
   .page-grid {
@@ -96,6 +105,22 @@ html[lang="th"] body {
   input,
   textarea {
     font-size: 16px;
+  /* ขยายตัวอักษรและระยะบรรทัดให้อ่านสบายบนมือถือ */
+  html { font-size: 17px; }
+  body { line-height: 1.65; }
+  .eyebrow { font-size: 0.72rem; letter-spacing: 0.16em; }
+  .section-rule { font-size: 0.75rem; letter-spacing: 0.14em; }
+  .tag-pill,
+  main .text-xs,
+  .journey-link { font-size: 0.82rem; }
+  main .text-sm {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+  header .text-\[9px\],
+  header .text-\[10px\],
+  nav .text-\[10px\] { font-size: 0.72rem; }
+
   }
 }
 

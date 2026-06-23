@@ -1,6 +1,8 @@
 ---
 // English profile page: the skills list matches the Thai version.
 import BaseLayout from "../layouts/BaseLayout.astro";
+// BASE_URL makes image paths work locally and under /Portfolio/ on GitHub Pages.
+const assetBase = import.meta.env.BASE_URL;
 const skills = [
   ["Tailwind CSS", "TW", "Frontend"],
   ["JavaScript", "JS", "Language"],
@@ -30,7 +32,7 @@ const skills = [
     >
       <div class="aspect-[4/5] overflow-hidden rounded-sm bg-[#1b1712]">
         <img
-          src="/images/S__31408131.jpg"
+          src={`${assetBase}images/S__31408131.jpg`}
           alt="Profile of Jirasak"
           class="h-full w-full object-cover"
         />

@@ -1,6 +1,8 @@
 ---
 // หน้าโปรไฟล์ภาษาไทย: แก้ข้อมูลแนะนำตัวและรายการ Skills ได้จากไฟล์นี้
 import BaseLayout from "../../layouts/BaseLayout.astro";
+// BASE_URL ทำให้ path รูปทำงานทั้ง localhost และ GitHub Pages (/Portfolio/)
+const assetBase = import.meta.env.BASE_URL;
 
 // รายการทักษะ: name คือชื่อบนการ์ด, label คือตัวอักษรย่อ, category คือหมวดทักษะ
 const skills = [
@@ -34,7 +36,7 @@ const skills = [
       <!-- รูปโปรไฟล์: ไฟล์จริงเก็บใน public/images -->
       <div class="aspect-[4/5] overflow-hidden rounded-sm bg-[#1b1712]">
         <img
-          src="/images/S__31408131.jpg"
+          src={`${assetBase}images/S__31408131.jpg`}
           alt="รูปโปรไฟล์ของกิตติศักดิ์"
           class="h-full w-full object-cover"
         />

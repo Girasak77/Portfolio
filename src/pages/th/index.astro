@@ -1,6 +1,8 @@
 ---
 // หน้าแรกภาษาไทย: Hero แบบสั้น เน้นชื่อ บทบาท และภาพเขียนโค้ด
 import BaseLayout from "../../layouts/BaseLayout.astro";
+// BASE_URL ทำให้ลิงก์และรูปทำงานเมื่อเว็บไซต์อยู่ใน /Portfolio/ บน GitHub Pages
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout lang="th" title="Portfolio - จีรศักดิ์">
@@ -33,12 +35,12 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         <!-- ปุ่มหลักและปุ่มดูผลงาน -->
         <div class="mt-10 flex flex-wrap gap-3">
           <a
-            href="/th/contact"
+            href={`${base}th/contact`}
             class="rounded-sm bg-gold px-6 py-3 text-xs font-bold tracking-[.12em] text-ink transition hover:bg-cream"
             >ติดต่อผม <span class="ml-1">→</span></a
           >
           <a
-            href="/th/portfolio"
+            href={`${base}th/portfolio`}
             class="rounded-sm border border-white/15 px-6 py-3 text-xs font-bold tracking-[.12em] text-cream transition hover:border-gold hover:text-gold"
             >ดูผลงาน</a
           >
@@ -104,7 +106,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           class="relative overflow-hidden rounded-sm border border-gold/40 bg-panel p-2 shadow-[0_0_60px_rgba(217,174,84,.13)]"
         >
           <img
-            src="/imge/jeerasak.png"
+            src={`${base}images/hero-coding-portrait.png`}
             alt="จีรศักดิ์"
             class="aspect-[4/5] w-full object-cover object-center"
           />
