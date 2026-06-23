@@ -89,6 +89,11 @@ html[lang="th"] body {
   @apply text-base;
 }
 
+/* กำหนดจุดหยุดของการ scroll ให้ section ไม่ชิดขอบบนเกินไป */
+.scroll-section {
+  scroll-margin-top: 1.5rem;
+}
+
 /* กติกาสำหรับมือถือ ใช้ร่วมกันทั้งหน้าไทยและอังกฤษ */
 @media (max-width: 767px) {
   .page-grid {

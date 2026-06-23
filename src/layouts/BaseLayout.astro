@@ -38,18 +38,20 @@ const labels = isThai
       switch: "ไทย",
       footer: "© 2026 Jeerasak A. Crafted in Bangkok.",
     };
+// เมนูหลักชี้ไปยัง section ของหน้าแรก เพื่อเลื่อนแบบ one-page
+const scrollRoot = isThai ? `${root}th/` : root;
 const links = [
-  [labels.home, `${base}/`],
-  [labels.profile, `${base}/about`],
-  [labels.work, `${base}/portfolio`],
-  [labels.contact, `${base}/contact`],
+  [labels.home, `${scrollRoot}#home`],
+  [labels.profile, `${scrollRoot}#profile`],
+  [labels.work, `${scrollRoot}#work`],
+  [labels.contact, `${scrollRoot}#contact`],
 ];
 // ลิงก์ภาษาเป็น static link ปกติ ไม่ใช้ JavaScript
 const languageLink = isThai ? root : `${root}th/`;
 // ปุ่มส่วนถัดไป: ผู้ชมเลื่อนลงมาท้ายหน้าแล้วกดไปต่อได้โดยไม่ใช้ JavaScript
 const pageName = path.replace(/\/$/, "").split("/").pop() || "";
 const nextPage = pageName === "about" ? "portfolio" : pageName === "portfolio" ? "contact" : pageName === "contact" ? "" : "about";
-const nextHref = nextPage ? `${base}/${nextPage}` : `${base}/`;
+const nextHref = nextPage ? `${scrollRoot}#${nextPage}` : `${scrollRoot}#home`;
 const nextLabel = isThai ? "หน้าถัดไป" : "Next section";
 ---
 
@@ -80,7 +82,7 @@ const nextLabel = isThai ? "หน้าถัดไป" : "Next section";
       >
         <a
           href={base || "/"}
-          class="font-display text-lg font-bold tracking-[-.06em] text-gold sm:text-xl"
+          class="font-display text-xl font-bold tracking-[-.06em] text-gold sm:text-2xl"
           >Portfolio<span class="text-gold">.</span></a
         >
         <nav class="hidden items-center gap-6 md:flex">
@@ -89,7 +91,7 @@ const nextLabel = isThai ? "หน้าถัดไป" : "Next section";
               <a
                 href={href}
                 class:list={[
-                  "text-[11px] font-bold uppercase tracking-[.13em] transition",
+                  "text-sm font-bold uppercase tracking-[.13em] transition",
                   path === href ||
                   (href.endsWith("/") && path === href.slice(0, -1))
                     ? "text-gold"
@@ -104,18 +106,18 @@ const nextLabel = isThai ? "หน้าถัดไป" : "Next section";
         <div class="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
             href={languageLink}
-            class="text-[9px] font-bold uppercase tracking-[.12em] text-stone-400 hover:text-gold sm:text-[10px]"
+            class="text-xs font-bold uppercase tracking-[.12em] text-stone-400 hover:text-gold sm:text-sm"
             >{labels.switch}</a
           ><a
-            href={`${base}/contact`}
-            class="rounded-full border border-gold/60 px-3 py-2 text-[9px] font-bold uppercase tracking-[.12em] text-gold transition hover:bg-gold hover:text-ink sm:px-4 sm:text-[10px] sm:tracking-[.16em]"
+            href={`${scrollRoot}#contact`}
+            class="rounded-full border border-gold/60 px-4 py-2.5 text-xs font-bold uppercase tracking-[.12em] text-gold transition hover:bg-gold hover:text-ink sm:text-sm sm:tracking-[.16em]"
             >{labels.talk}</a
           >
         </div>
       </header>
       <!-- เมนูมือถือ: ใช้ลิงก์ปกติและเลื่อนแนวนอนได้โดยไม่ใช้ JavaScript -->
       <nav
-        class="mx-auto flex max-w-7xl gap-5 overflow-x-auto px-5 pb-3 text-[10px] font-bold uppercase tracking-[.12em] text-stone-500 md:hidden"
+        class="mx-auto flex max-w-7xl gap-6 overflow-x-auto px-5 pb-4 text-sm font-bold uppercase tracking-[.12em] text-stone-500 md:hidden"
       >
         {
           links.map(([label, href]) => (
