@@ -1,0 +1,47 @@
+---
+// การ์ดผลงานที่ใช้ซ้ำ: รับชื่อ หมวด หมายเลข และสีพื้นหลังจาก props ของแต่ละหน้า
+const {
+  title,
+  category,
+  number,
+  color = "from-[#382c54] via-[#151f3e] to-[#101011]",
+} = Astro.props;
+---
+
+<!-- เปลี่ยน href เป็นหน้ารายละเอียดผลงานจริงได้ในอนาคต -->
+<a href="/portfolio" class="group block">
+  <div
+    class:list={[
+      "relative aspect-[4/3] overflow-hidden rounded-sm bg-gradient-to-br p-5",
+      color,
+    ]}
+  >
+    <!-- องค์ประกอบตกแต่งบนพื้นหลังของการ์ด -->
+    <div
+      class="absolute -right-10 -top-10 h-40 w-40 rounded-full border-[18px] border-gold/30 transition duration-700 group-hover:scale-125"
+    >
+    </div>
+
+    <div
+      class="absolute bottom-5 left-5 right-5 rounded-sm border border-white/10 bg-black/30 p-3 backdrop-blur-sm"
+    >
+      <div class="mb-2 h-1.5 w-2/3 rounded bg-gold/80"></div>
+      <div class="h-1.5 w-full rounded bg-white/20"></div>
+    </div>
+
+    <span class="absolute right-5 top-5 font-display text-3xl text-cream/70">
+      {number}
+    </span>
+  </div>
+
+  <!-- ชื่อและหมวดของผลงาน -->
+  <div class="mt-4 flex items-start justify-between">
+    <div>
+      <h3 class="font-display text-lg font-bold text-cream">{title}</h3>
+      <p class="mt-1 text-xs text-stone-500">{category}</p>
+    </div>
+    <span class="text-gold opacity-0 transition group-hover:opacity-100"
+      >&rarr;</span
+    >
+  </div>
+</a>

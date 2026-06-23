@@ -1,0 +1,46 @@
+---
+// หน้าติดต่อภาษาไทย: ฟอร์มนี้เป็น static และยังไม่ส่งข้อมูลไปที่ใด
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout lang="th" title="ติดต่อ - กิตติศักดิ์"
+  ><section class="mx-auto max-w-7xl px-6 pt-16 md:px-10 md:pt-24">
+    <p class="eyebrow">04 / มาร่วมงานกัน</p><div
+      class="mt-5 grid gap-14 lg:grid-cols-2"
+    >
+      <div>
+        <h1 class="section-title">มาสร้างโปรเจกต์ด้วยกัน</h1><p
+          class="mt-7 max-w-md leading-7 text-stone-400"
+        >
+          ผมกำลังมองหาโอกาสในการฝึกงานและพัฒนาทักษะด้าน Full-stack Development หากมีโปรเจกต์หรือไอเดียที่น่าสนใจ ยินดีพูดคุยและเรียนรู้ไปด้วยกันครับ
+        </p><a
+          href="giresnext@gmail.com"
+          class="mt-10 block font-display text-2xl text-gold underline decoration-gold/30 underline-offset-8"
+          >giresnext@gmail.com</a
+        >
+      </div><!-- เปลี่ยน action และ method หากต้องการให้ฟอร์มส่งข้อมูลจริง -->
+      <form class="rounded-sm border border-white/10 bg-panel p-6 md:p-8">
+        <label class="block text-xs text-stone-400"
+          >ชื่อของคุณ<input
+            class="mt-2 w-full border-b border-white/15 bg-transparent py-3 text-cream outline-none focus:border-gold"
+            placeholder="ชื่อที่อยากให้เรียก"
+          /></label
+        ><label class="mt-7 block text-xs text-stone-400"
+          >อีเมล<input
+            type="email"
+            class="mt-2 w-full border-b border-white/15 bg-transparent py-3 text-cream outline-none focus:border-gold"
+            placeholder="you@company.com"
+          /></label
+        ><label class="mt-7 block text-xs text-stone-400"
+          >เล่าเกี่ยวกับโปรเจกต์<textarea
+            class="mt-2 min-h-28 w-full border-b border-white/15 bg-transparent py-3 text-cream outline-none focus:border-gold"
+            placeholder="เรากำลังจะสร้างอะไร?"></textarea></label
+        ><button
+          type="button"
+          class="mt-8 rounded-full bg-gold px-6 py-3 text-xs font-bold tracking-widest text-ink"
+          >ส่งข้อความ</button
+        >
+      </form>
+    </div>
+  </section></BaseLayout
+>

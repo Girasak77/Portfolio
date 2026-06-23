@@ -1,0 +1,71 @@
+---
+// หน้ารวมผลงานภาษาไทย: เพิ่มข้อมูลผลงานในตัวแปร projects ได้ง่าย
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+const projects = [
+  [
+    "Tala Studio",
+    "อัตลักษณ์แบรนด์และอีคอมเมิร์ซ",
+    "01",
+    "from-[#644426] via-[#302011] to-[#101011]",
+  ],
+  [
+    "Morrow Journal",
+    "แพลตฟอร์มบทความ",
+    "02",
+    "from-[#382c54] via-[#151f3e] to-[#101011]",
+  ],
+  [
+    "Aera Objects",
+    "กำกับศิลป์ดิจิทัล",
+    "03",
+    "from-[#1d4d4b] via-[#142525] to-[#101011]",
+  ],
+  [
+    "Oasis Hotel",
+    "โรงแรมและระบบจอง",
+    "04",
+    "from-[#694536] via-[#281b19] to-[#101011]",
+  ],
+  [
+    "Pond Records",
+    "เว็บไซต์ค่ายเพลง",
+    "05",
+    "from-[#2a465c] via-[#152331] to-[#101011]",
+  ],
+  [
+    "Nula Finance",
+    "ออกแบบผลิตภัณฑ์",
+    "06",
+    "from-[#5c4d2a] via-[#25200f] to-[#101011]",
+  ],
+];
+---
+
+<BaseLayout lang="th" title="ผลงาน - กิตติศักดิ์"
+  ><section class="mx-auto max-w-7xl px-6 pt-16 md:px-10 md:pt-24">
+    <p class="eyebrow">02 / ผลงานที่คัดสรร</p><div
+      class="mt-5 flex flex-wrap items-end justify-between gap-6"
+    >
+      <h1 class="section-title">
+        ผลงานของผม
+      </h1><!-- ปุ่มหมวดหมู่เป็นข้อความ static: เชื่อมลิงก์จริงได้ภายหลัง -->
+      <div class="flex gap-4 text-xs">
+        <span class="text-gold">ทั้งหมด</span>
+      </div>
+    </div><div
+      class="mt-14 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
+    >
+      {
+        projects.map(([title, category, number, color]) => (
+          <ProjectCard
+            title={title}
+            category={category}
+            number={number}
+            color={color}
+          />
+        ))
+      }
+    </div>
+  </section></BaseLayout
+>

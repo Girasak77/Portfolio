@@ -1,0 +1,68 @@
+---
+// English projects page: uses the same project cards as the Thai version.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+const projects = [
+  [
+    "Tala Studio",
+    "Brand identity and e-commerce",
+    "01",
+    "from-[#644426] via-[#302011] to-[#101011]",
+  ],
+  [
+    "Morrow Journal",
+    "Editorial platform",
+    "02",
+    "from-[#382c54] via-[#151f3e] to-[#101011]",
+  ],
+  [
+    "Aera Objects",
+    "Digital art direction",
+    "03",
+    "from-[#1d4d4b] via-[#142525] to-[#101011]",
+  ],
+  [
+    "Oasis Hotel",
+    "Hospitality and booking",
+    "04",
+    "from-[#694536] via-[#281b19] to-[#101011]",
+  ],
+  [
+    "Pond Records",
+    "Music label website",
+    "05",
+    "from-[#2a465c] via-[#152331] to-[#101011]",
+  ],
+  [
+    "Nula Finance",
+    "Product design",
+    "06",
+    "from-[#5c4d2a] via-[#25200f] to-[#101011]",
+  ],
+];
+---
+
+<BaseLayout title="Projects - Jirasak"
+  ><section class="mx-auto max-w-7xl px-6 pt-16 md:px-10 md:pt-24">
+    <p class="eyebrow">02 / Selected projects</p><div
+      class="mt-5 flex flex-wrap items-end justify-between gap-6"
+    >
+      <h1 class="section-title">My projects</h1><div class="flex gap-4 text-xs">
+        <span class="text-gold">All</span>
+      </div>
+    </div><div
+      class="mt-14 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
+    >
+      {
+        projects.map(([title, category, number, color]) => (
+          <ProjectCard
+            title={title}
+            category={category}
+            number={number}
+            color={color}
+          />
+        ))
+      }
+    </div>
+  </section></BaseLayout
+>

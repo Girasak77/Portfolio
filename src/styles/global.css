@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0b0b0c;
+  --color-panel: #141416;
+  --color-gold: #d9ae54;
+  --color-cream: #f5eddf;
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* พื้นหลังหลายชั้นช่วยให้เว็บดาร์กมีมิติ โดยไม่ใช้รูปภาพเพิ่มเติม */
+  body {
+    @apply bg-ink text-stone-300 font-body antialiased;
+    background-image:
+      radial-gradient(
+        circle at 82% 4%,
+        rgba(217, 174, 84, 0.11),
+        transparent 24rem
+      ),
+      radial-gradient(
+        circle at 4% 52%,
+        rgba(217, 174, 84, 0.05),
+        transparent 20rem
+      );
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* ใช้ฟอนต์ที่อ่านภาษาไทยได้ดีเมื่อเปิดหน้าในโฟลเดอร์ /th */
+html[lang="th"] body {
+  font-family: "Noto Sans Thai", sans-serif;
+}
+
+/* ลายกริดและแสงนุ่ม: ใช้เพิ่มมิติให้หน้าที่มีพื้นที่ว่างมาก */
+.page-grid {
+  background-image:
+    linear-gradient(rgba(245, 237, 223, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 237, 223, 0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+/* เส้นและกล่องกลาง ใช้เป็นภาษาภาพร่วมกันทั้งเว็บไซต์ */
+.section-rule {
+  @apply flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.2em] text-stone-500;
+}
+.section-rule::before {
+  content: "";
+  @apply h-px w-9 bg-gold;
+}
+.tag-pill {
+  @apply rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[.14em] text-stone-400;
+}
+.panel-glow {
+  @apply relative overflow-hidden border border-white/10 bg-panel/80;
+}
+.panel-glow::after {
+  content: "";
+  @apply pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full border border-gold/20;
+}
+.folio-number {
+  @apply font-display text-7xl font-bold leading-none tracking-[-.1em] text-cream/5 md:text-9xl;
+}
+
+/* ป้องกันอักษร display ที่มีส่วนยื่น เช่น J, Q, y ถูกตัดด้วย tracking ติดลบ */
+.hero-title {
+  display: inline-block;
+  overflow: visible;
+  padding-inline-start: 0.08em;
+  margin-inline-start: -0.08em;
+  letter-spacing: -0.025em;
+}
+
+/* กติกาสำหรับมือถือ ใช้ร่วมกันทั้งหน้าไทยและอังกฤษ */
+@media (max-width: 767px) {
+  .page-grid {
+    background-size: 48px 48px;
+  }
+  .section-title {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+  .folio-number {
+    font-size: 4.5rem;
+  }
+  input,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-[10px] font-bold uppercase tracking-[.22em] text-gold;
+  }
+  .section-title {
+    @apply font-display text-3xl font-bold tracking-[-.05em] text-cream md:text-5xl;
+  }
+  .line-link {
+    @apply inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[.18em] text-cream transition hover:text-gold;
+  }
+  .line-link::after {
+    content: "→";
+    @apply text-gold text-base;
+  }
+}

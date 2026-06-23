@@ -1,0 +1,100 @@
+---
+// หน้าโปรไฟล์ภาษาไทย: แก้ข้อมูลแนะนำตัวและรายการ Skills ได้จากไฟล์นี้
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// รายการทักษะ: name คือชื่อบนการ์ด, label คือตัวอักษรย่อ, category คือหมวดทักษะ
+const skills = [
+  ["Tailwind CSS", "TW", "Frontend"],
+  ["JavaScript", "JS", "Language"],
+  ["TypeScript", "TS", "Language"],
+  ["Node.js", "ND", "Backend"],
+  ["Deno", "DN", "Runtime"],
+  ["Bun", "BN", "Runtime"],
+  ["SQL", "SQL", "Database"],
+  ["Prisma", "PR", "ORM"],
+  ["Astro", "AS", "Framework"],
+  ["Vue", "VU", "Frontend"],
+  ["Nuxt", "NX", "Framework"],
+  ["React", "RC", "Library"],
+  ["SvelteKit", "SK", "Framework"],
+  ["DevOps", "DO", "Infrastructure"],
+  ["Bootstrap", "BS", "UI"],
+  ["Cloudflare Pages", "CF", "Deploy"],
+  ["Git & GitHub", "GH", "Version control"],
+  ["HTML & CSS", "HC", "Foundation"],
+];
+---
+
+<BaseLayout lang="th" title="ประวัติ - กิตติศักดิ์">
+  <!-- ส่วนแนะนำตัว: แก้รูปและข้อความได้จากส่วนนี้ -->
+  <section class="mx-auto max-w-7xl px-6 pt-16 md:px-10 md:pt-24">
+    <p class="eyebrow">01 / นายจีรศักดิ์ เอกจันทึก</p>
+
+    <div class="mt-7 grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
+      <!-- รูปโปรไฟล์: ไฟล์จริงเก็บใน public/images -->
+      <div class="aspect-[4/5] overflow-hidden rounded-sm bg-[#1b1712]">
+        <img
+          src="/images/S__31408131.jpg"
+          alt="รูปโปรไฟล์ของกิตติศักดิ์"
+          class="h-full w-full object-cover"
+        />
+      </div>
+
+      <div class="flex flex-col justify-end">
+        <p class="section-rule mb-5">Profile / Bangkok, Thailand</p>
+        <h1 class="text-5xl">Developer</h1>
+        <p class="mt-8 max-w-xl text-base leading-8 text-stone-400">
+          นักศึกษาสาขาเทคโนโลยีสารสนเทศที่มีความสนใจด้านการพัฒนาเว็บไซต์และซอฟต์แวร์ มุ่งมั่นในการเรียนรู้เทคโนโลยีใหม่ ๆ และพัฒนาทักษะด้าน Full-stack Development อย่างต่อเนื่อง มีพื้นฐานในการพัฒนาโปรแกรมด้วย JavaScript, C#, HTML, CSS และการจัดการฐานข้อมูล สามารถทำงานเป็นทีม เรียนรู้ได้รวดเร็ว และมีความรับผิดชอบ พร้อมนำความรู้ไปประยุกต์ใช้ในการฝึกงานและการทำงานจริ'
+        </p>
+        <div class="mt-8 flex flex-wrap gap-2">
+          <span class="tag-pill">Frontend</span>
+          <span class="tag-pill">Backend</span>
+          <span class="tag-pill">Digital product</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills: กริดการ์ดคล้ายตัวอย่าง แต่ใช้ภาษาภาพดำ-ทองของเว็บนี้ -->
+  <section class="mx-auto mt-28 max-w-7xl px-6 md:px-10">
+    <div
+      class="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
+    >
+      <div>
+        <p class="eyebrow mb-3">02 / Technical toolbox</p>
+        <h2 class="section-title">
+          Skills ที่ผมใช้<br />สร้างงานให้เกิดขึ้นจริง
+        </h2>
+      </div>
+    </div>
+
+    <div class="panel-glow rounded-sm p-4 md:p-6">
+      <div
+        class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6"
+      >
+        {
+          skills.map(([name, label, category], index) => (
+            <article class="group relative min-h-40 overflow-hidden rounded-sm border border-white/8 bg-ink/70 p-4 transition duration-300 hover:-translate-y-1 hover:border-gold/60 hover:bg-[#1a1711]">
+              <span class="absolute right-3 top-3 text-[9px] font-bold tracking-widest text-stone-600">
+                0{index + 1}
+              </span>
+              <div class="flex h-full flex-col justify-between">
+                <span class="grid h-11 w-11 place-items-center rounded-full border border-gold/30 bg-gold/10 font-display text-sm font-bold text-gold">
+                  {label}
+                </span>
+                <div>
+                  <p class="text-[9px] font-bold uppercase tracking-[.18em] text-stone-500">
+                    {category}
+                  </p>
+                  <h3 class="mt-2 font-display text-lg font-bold leading-tight text-cream">
+                    {name}
+                  </h3>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
