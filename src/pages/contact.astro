@@ -1,9 +1,10 @@
 ---
 // English contact page: mirrors the Thai contact page and keeps the same contact email.
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
 ---
 
-<BaseLayout title="Contact - Jirasak"
+<BaseLayout title="Contact - Jeerasak"
   ><section class="mx-auto max-w-7xl px-6 pt-16 md:px-10 md:pt-24">
     <p class="eyebrow">04 / Let’s work together</p><div
       class="mt-5 grid gap-14 lg:grid-cols-2"
@@ -12,35 +13,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <h1 class="section-title">Let’s build a project together</h1><p
           class="mt-7 max-w-md leading-7 text-stone-400"
         >
-          I am looking for internship opportunities and opportunities to grow my
-          full-stack development skills. If you have an interesting project or
-          idea, I would be happy to talk and learn together.
+          I am open to internship opportunities, junior web development work,
+          and practical projects where I can contribute to frontend, backend,
+          and database tasks while continuing to grow as a developer.
         </p><a
           href="mailto:giresnext@gmail.com"
           class="mt-10 block font-display text-2xl text-gold underline decoration-gold/30 underline-offset-8"
           >giresnext@gmail.com</a>
-      </div><!-- This form is static until an action endpoint is added. -->
-      <form class="rounded-sm border border-white/10 bg-panel p-6 md:p-8">
-        <label class="block text-xs text-stone-400"
-          >Your name<input
-            class="mt-2 w-full border-b border-white/15 bg-transparent py-3 text-cream outline-none focus:border-gold"
-            placeholder="How should I call you?"
-          /></label
-        ><label class="mt-7 block text-xs text-stone-400"
-          >Email<input
-            type="email"
-            class="mt-2 w-full border-b border-white/15 bg-transparent py-3 text-cream outline-none focus:border-gold"
-            placeholder="you@company.com"
-          /></label
-        ><label class="mt-7 block text-xs text-stone-400"
-          >Tell me about your project<textarea
-            class="mt-2 min-h-28 w-full border-b border-white/15 bg-transparent py-3 text-cream outline-none focus:border-gold"
-            placeholder="What would you like to build?"></textarea></label
-        ><button
-          type="button"
-          class="mt-8 rounded-full bg-gold px-6 py-3 text-xs font-bold tracking-widest text-ink"
-          >Send message</button>
-      </form>
+      </div>
+      <ContactForm />
     </div>
   </section></BaseLayout
 >

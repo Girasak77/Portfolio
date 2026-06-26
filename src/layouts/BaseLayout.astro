@@ -8,8 +8,8 @@ interface Props {
   lang?: "en" | "th";
 }
 const {
-  title = "Kittisak — Digital Designer",
-  description = "Selected work of Kittisak Rattanakul.",
+  title = "Jeerasak — Web Developer",
+  description = "Portfolio of Jeerasak Eakchantuek, an IT student focused on web and full-stack development.",
   lang = "en",
 } = Astro.props;
 // lang = "th" สำหรับหน้าไทย และ "en" สำหรับหน้าอังกฤษ
@@ -27,7 +27,7 @@ const labels = isThai
       contact: "ติดต่อ",
       talk: "คุยกัน",
       switch: "EN",
-      footer: "© 2026 Jeerasak A. สร้างสรรค์จากกรุงเทพฯ",
+      footer: "© 2026 Jeerasak Eakchantuek. สร้างสรรค์จากกรุงเทพฯ",
     }
   : {
       home: "Home",
@@ -36,7 +36,7 @@ const labels = isThai
       contact: "Contact",
       talk: "Let's talk",
       switch: "ไทย",
-      footer: "© 2026 Jeerasak A. Crafted in Bangkok.",
+      footer: "© 2026 Jeerasak Eakchantuek. Crafted in Bangkok.",
     };
 // เมนูหลักชี้ไปยัง section ของหน้าแรก เพื่อเลื่อนแบบ one-page
 const scrollRoot = isThai ? `${root}th/` : root;
@@ -136,7 +136,7 @@ const languageLink = isThai ? root : `${root}th/`;
       <div
         class="pointer-events-none fixed bottom-8 left-5 hidden -rotate-90 text-[9px] font-bold uppercase tracking-[.28em] text-stone-600 xl:block"
       >
-        Kittisak / Digital practice / 2026
+        Jeerasak / Web development / 2026
       </div>
       <main class="relative pt-4 md:pt-24"><slot /></main>
       <!-- Footer กลาง: เปลี่ยน social link ได้ที่จุดเดียว -->
@@ -147,7 +147,7 @@ const languageLink = isThai ? root : `${root}th/`;
           class="flex flex-col gap-4 text-xs text-stone-500 md:flex-row md:items-center md:justify-between"
         >
           <p>{labels.footer}</p><div class="flex gap-5 text-xl">
-            <a href="giresnext@gmail.com"
+            <a href="mailto:giresnext@gmail.com"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="1em"

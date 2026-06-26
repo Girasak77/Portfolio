@@ -6,10 +6,11 @@ const {
   number,
   color = "from-[#382c54] via-[#151f3e] to-[#101011]",
 } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <!-- เปลี่ยน href เป็นหน้ารายละเอียดผลงานจริงได้ในอนาคต -->
-<a href="/portfolio" class="group block">
+<a href={`${base}portfolio`} class="group block">
   <div
     class:list={[
       "relative aspect-[4/3] overflow-hidden rounded-sm bg-gradient-to-br p-5",

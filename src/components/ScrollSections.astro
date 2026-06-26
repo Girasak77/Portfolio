@@ -2,6 +2,7 @@
 // Section เต็มรูปแบบสำหรับหน้าแรกแบบเลื่อนยาว
 // โครงสร้าง Skills, Projects และ Contact คงรูปแบบเดียวกับหน้าเดิม
 import ProjectCard from "./ProjectCard.astro";
+import ContactForm from "./ContactForm.astro";
 
 interface Props {
   lang?: "en" | "th";
@@ -33,12 +34,12 @@ const skills = [
 ];
 
 const projects = [
-  ["Tala Studio", "Brand identity and e-commerce", "01", "from-[#644426] via-[#302011] to-[#101011]"],
-  ["Morrow Journal", "Editorial platform", "02", "from-[#382c54] via-[#151f3e] to-[#101011]"],
-  ["Aera Objects", "Digital art direction", "03", "from-[#1d4d4b] via-[#142525] to-[#101011]"],
-  ["Oasis Hotel", "Hospitality and booking", "04", "from-[#694536] via-[#281b19] to-[#101011]"],
-  ["Pond Records", "Music label website", "05", "from-[#2a465c] via-[#152331] to-[#101011]"],
-  ["Nula Finance", "Product design", "06", "from-[#5c4d2a] via-[#25200f] to-[#101011]"],
+  ["Portfolio Website", "Astro, Tailwind CSS, responsive UI", "01", "from-[#644426] via-[#302011] to-[#101011]"],
+  ["Student System UI", "Dashboard and CRUD interface practice", "02", "from-[#382c54] via-[#151f3e] to-[#101011]"],
+  ["Database API Practice", "Node.js, SQL, Prisma fundamentals", "03", "from-[#1d4d4b] via-[#142525] to-[#101011]"],
+  ["Landing Page Build", "HTML, CSS, Bootstrap, deployment", "04", "from-[#694536] via-[#281b19] to-[#101011]"],
+  ["Full-stack Learning Lab", "Frontend to backend workflow", "05", "from-[#2a465c] via-[#152331] to-[#101011]"],
+  ["GitHub Pages Deploy", "Static build and production setup", "06", "from-[#5c4d2a] via-[#25200f] to-[#101011]"],
 ];
 
 const text = isThai
@@ -46,33 +47,27 @@ const text = isThai
       profileLabel: "01 / ประวัติ",
       profileTitle: "Developer",
       profileText:
-        "นักศึกษา IT ที่สนใจการพัฒนาเว็บไซต์และระบบงานครบวงจร ตั้งแต่ Frontend ไปจนถึง Backend พร้อมเรียนรู้เทคโนโลยีใหม่และสร้างงานที่ใช้งานได้จริง.",
+        "นักศึกษา IT ที่สนใจการพัฒนาเว็บไซต์และระบบงานครบวงจร ตั้งแต่ Frontend, Backend, ฐานข้อมูล ไปจนถึงการ deploy งานจริง พร้อมเรียนรู้เทคโนโลยีใหม่และสร้างงานที่ใช้งานได้จริง.",
       skillsLabel: "02 / Technical toolbox",
       skillsTitle: "Skills ที่ผมใช้\nสร้างงานให้เกิดขึ้นจริง",
       workLabel: "03 / ผลงานที่คัดสรร",
       workTitle: "ผลงานของผม",
       contactLabel: "04 / มาร่วมงานกัน",
       contactTitle: "มาสร้างโปรเจกต์ด้วยกัน",
-      contactText: "หากมีโปรเจกต์ ไอเดีย หรือโอกาสฝึกงานที่น่าสนใจ ยินดีพูดคุยและเรียนรู้ไปด้วยกันครับ",
-      name: "ชื่อของคุณ",
-      project: "เล่าเกี่ยวกับโปรเจกต์",
-      send: "ส่งข้อความ",
+      contactText: "หากมีโอกาสฝึกงาน งานเว็บสำหรับเริ่มต้น หรือโปรเจกต์ที่ต้องการคนช่วยพัฒนา ผมยินดีพูดคุย เรียนรู้ และลงมือทำให้เกิดผลจริงครับ",
     }
   : {
-      profileLabel: "01 / Jirasak Eakchantuek",
+      profileLabel: "01 / Jeerasak Eakchantuek",
       profileTitle: "Developer",
       profileText:
-        "An Information Technology student passionate about web and software development. I continuously build full-stack skills across JavaScript, C#, HTML, CSS, and databases.",
+        "An Information Technology student passionate about web and software development. I build full-stack skills across JavaScript, C#, HTML, CSS, databases, and deployment workflows.",
       skillsLabel: "02 / Technical toolbox",
       skillsTitle: "Skills I use\nto build real projects",
       workLabel: "03 / Selected projects",
       workTitle: "My projects",
       contactLabel: "04 / Let’s work together",
       contactTitle: "Let’s build a project together",
-      contactText: "I am looking for internship opportunities and opportunities to grow my full-stack development skills. If you have an interesting project or idea, I would be happy to talk and learn together.",
-      name: "Your name",
-      project: "Tell me about your project",
-      send: "Send message",
+      contactText: "I am open to internships, junior web development opportunities, and real projects where I can help with frontend, backend, and database work while growing through hands-on practice.",
     };
 ---
 
@@ -139,11 +134,6 @@ const text = isThai
       <p class="mt-7 max-w-md leading-7 text-stone-400">{text.contactText}</p>
       <a href="mailto:giresnext@gmail.com" class="mt-10 block font-display text-2xl text-gold underline decoration-gold/30 underline-offset-8">giresnext@gmail.com</a>
     </div>
-    <form class="rounded-sm border border-white/10 bg-panel p-6 md:p-8">
-      <label class="block text-xs text-stone-400">{text.name}<input class="mt-2 w-full border-b border-white/15 bg-transparent py-3 text-cream outline-none focus:border-gold" placeholder={isThai ? "ชื่อที่อยากให้เรียก" : "How should I call you?"} /></label>
-      <label class="mt-7 block text-xs text-stone-400">Email<input type="email" class="mt-2 w-full border-b border-white/15 bg-transparent py-3 text-cream outline-none focus:border-gold" placeholder="you@company.com" /></label>
-      <label class="mt-7 block text-xs text-stone-400">{text.project}<textarea class="mt-2 min-h-28 w-full border-b border-white/15 bg-transparent py-3 text-cream outline-none focus:border-gold" placeholder={isThai ? "เรากำลังจะสร้างอะไร?" : "What would you like to build?"}></textarea></label>
-      <button type="button" class="mt-8 rounded-full bg-gold px-6 py-3 text-xs font-bold tracking-widest text-ink">{text.send}</button>
-    </form>
+    <ContactForm lang={lang} />
   </div>
 </section>
